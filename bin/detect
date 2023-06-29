@@ -1,13 +1,4 @@
 #!/usr/bin/env bash
 
-# Este archivo detecta si el buildpack debe ser utilizado para una aplicación específica.
-
-# Verifica si hay un archivo específico del lenguaje/framework en el proyecto
-if [[ -f Gemfile ]]; then
-  echo "Ruby/Rails buildpack"
-  exit 0
-fi
-
-# Si no se encuentra ningún archivo específico, devuelve un código de salida diferente
-echo "No se encontró ninguna aplicación compatible"
-exit 1
+echo "My Buildpack"
+exit 0

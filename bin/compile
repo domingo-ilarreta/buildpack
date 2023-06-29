@@ -1,12 +1,13 @@
 #!/usr/bin/env bash
 
-# Este archivo contiene los pasos de compilación y configuración para tu aplicación.
-
-# Asegúrate de tener instaladas las dependencias necesarias aquí.
-# Por ejemplo, para instalar las dependencias de capybara-webkit:
+# Instalar dependencias del sistema operativo necesarias para capybara-webkit
 apt-get update
-apt-get install -y qt5-default libqt5webkit5-dev gstreamer1.0-plugins-base gstreamer1.0-tools gstreamer1.0-x
+apt-get install -y libqtwebkit4 libqt4-dev xvfb
 
-# Continúa con los pasos de compilación de tu aplicación.
-# Por ejemplo, ejecuta el comando `bundle install`:
-bundle install
+# Configurar el entorno de ejecución para capybara-webkit
+export DISPLAY=:99
+Xvfb $DISPLAY -screen 0 1024x768x24 > /dev/null 2>&1 &
+sleep 5
+
+# Instalar la gema capybara-webkit
+gem install capybara-webkit -v '1.15.1'
